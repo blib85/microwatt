@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TARGETS="arty nexys-video wukong-v2 ecpix-5"
+TARGETS="a7 arty nexys-video wukong-v2 ecpix-5"
 
 ME=$(realpath $0)
 echo ME=$ME
