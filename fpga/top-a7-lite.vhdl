@@ -63,8 +63,6 @@ entity toplevel is
         sdcard_data   : inout std_ulogic_vector(3 downto 0);
         sdcard_cmd    : inout std_ulogic;
         sdcard_clk    : out   std_ulogic;
-        sdcard_cd     : in    std_ulogic;
-        sdcard_reset  : out   std_ulogic;
 
 	-- DRAM wires
 	ddram_a       : out std_logic_vector(14 downto 0);
@@ -477,7 +475,6 @@ begin
             sdcard_data   : inout std_ulogic_vector(3 downto 0);
             sdcard_cmd    : inout std_ulogic;
             sdcard_clk    : out   std_ulogic;
-            sdcard_cd     : in    std_ulogic;
             irq           : out   std_ulogic
             );
         end component;
@@ -515,7 +512,6 @@ begin
                 sdcard_data   => sdcard_data,
                 sdcard_cmd    => sdcard_cmd,
                 sdcard_clk    => sdcard_clk,
-                sdcard_cd     => sdcard_cd,
                 irq           => ext_irq_sdcard
                 );
 
@@ -526,7 +522,6 @@ begin
 
         wb_sdcard_out.stall <= not wb_sdcard_out.ack;
 
-	sdcard_reset <= '0';
 
         -- Convert non-pipelined DMA wishbone to pipelined by suppressing
         -- non-acknowledged strobes
@@ -550,7 +545,6 @@ begin
     end generate;
 
     no_sdcard : if not USE_LITESDCARD generate
-        sdcard_reset <= '1';
     end generate;
 
     -- Mux WB response on the IO bus
