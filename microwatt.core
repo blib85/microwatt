@@ -90,6 +90,12 @@ filesets:
       - fpga/nexys-video.xdc : {file_type : xdc}
       - fpga/clk_gen_plle2.vhd : {file_type : vhdlSource-2008}
       - fpga/top-nexys-video.vhdl : {file_type : vhdlSource-2008}
+    
+  a7_lite:
+    files:
+      - fpga/a7-lite.xdc : {file_type : xdc}
+      - fpga/clk_gen_plle2.vhd : {file_type : vhdlSource-2008}
+      - fpga/top-a7-lite.vhdl : {file_type : vhdlSource-2008}
 
   acorn_cle_215:
     files:
@@ -445,6 +451,27 @@ targets:
       vivado: {part : xc7a35tcpg236-1}
     toplevel : toplevel
 
+    a7_lite:
+    default_tool: vivado
+    filesets: [core, a7_lite, soc, fpga, debug_xilinx, litedram, liteeth, uart16550, xilinx_specific, litesdcard]
+    parameters:
+      - memory_size
+      - ram_init_file
+      - use_litedram=true
+      - use_liteeth=true
+      - use_litesdcard=true
+      - disable_flatten_core
+      - no_bram
+      - spi_flash_offset=10485760
+      - log_length=2048
+      - uart_is_16550
+      - has_fpu
+      - has_btc
+    generate: [litedram_a7_lite, liteeth_a7_lite, litesdcard_a7_lite, git_hash]
+    tools:
+      vivado: {part : xc7a200tfbg484-2}
+    toplevel : toplevel
+
   synth:
     filesets: [core, soc, xilinx_specific]
     generate: [git_hash]
@@ -459,6 +486,18 @@ generators:
 generate:
   git_hash:
     generator : git_hash_gen
+
+  litedram_a7_lite:
+    generator: litedram_gen
+    parameters: {board : a7-lite}
+
+  liteeth_a7_lite:
+    generator: liteeth_gen
+    parameters: {board : a7-lite}
+
+  litesdcard_a7_lite:
+    generator: litesdcard_gen
+    parameters: {vendor : xilinx, frequency : 100e6}
 
   litedram_arty:
     generator: litedram_gen
