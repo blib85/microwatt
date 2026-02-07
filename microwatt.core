@@ -451,7 +451,7 @@ targets:
       vivado: {part : xc7a35tcpg236-1}
     toplevel : toplevel
 
-    a7_lite:
+  a7_lite:
     default_tool: vivado
     filesets: [core, a7_lite, soc, fpga, debug_xilinx, litedram, liteeth, uart16550, xilinx_specific, litesdcard]
     parameters:
