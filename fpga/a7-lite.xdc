@@ -38,11 +38,11 @@ set_property -dict { PACKAGE_PIN R21 IOSTANDARD LVCMOS33 } [get_ports { spi_flas
 ################################################################################
 
 set_property -dict { PACKAGE_PIN U7  IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_clk }];
-set_property -dict { PACKAGE_PIN AA8 IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_cmd }];
-set_property -dict { PACKAGE_PIN W9  IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_data[0] }];
-set_property -dict { PACKAGE_PIN Y9  IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_data[1] }];
-set_property -dict { PACKAGE_PIN Y7  IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_data[2] }];
-set_property -dict { PACKAGE_PIN Y8  IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_data[3] }];
+set_property -dict { PACKAGE_PIN AA8 IOSTANDARD LVCMOS33 SLEW FAST PULLUP TRUE } [get_ports { sdcard_cmd }];
+set_property -dict { PACKAGE_PIN W9  IOSTANDARD LVCMOS33 SLEW FAST PULLUP TRUE } [get_ports { sdcard_data[0] }];
+set_property -dict { PACKAGE_PIN Y9  IOSTANDARD LVCMOS33 SLEW FAST PULLUP TRUE } [get_ports { sdcard_data[1] }];
+set_property -dict { PACKAGE_PIN Y7  IOSTANDARD LVCMOS33 SLEW FAST PULLUP TRUE } [get_ports { sdcard_data[2] }];
+set_property -dict { PACKAGE_PIN Y8  IOSTANDARD LVCMOS33 SLEW FAST PULLUP TRUE } [get_ports { sdcard_data[3] }];
 
 # Put registers into IOBs to improve timing
 set_property IOB true [get_cells -hierarchical -filter {NAME =~*.litesdcard/sdcard_*}]
