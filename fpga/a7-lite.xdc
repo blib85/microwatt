@@ -2,25 +2,25 @@
 # clkin, reset, uart pins...
 ################################################################################
 
-set_property -dict {PACKAGE_PIN J19 IOSTANDARD LVCMOS33} [get_ports ext_clk]
+set_property -dict { PACKAGE_PIN J19 IOSTANDARD LVCMOS33 } [get_ports { ext_clk }];
 
-set_property -dict {PACKAGE_PIN L18 IOSTANDARD LVCMOS33} [get_ports ext_rst_n]
+set_property -dict { PACKAGE_PIN L18 IOSTANDARD LVCMOS33 } [get_ports { ext_rst_n }];
 
-set_property -dict {PACKAGE_PIN V2 IOSTANDARD LVCMOS33} [get_ports uart_main_tx]
-set_property -dict {PACKAGE_PIN U2 IOSTANDARD LVCMOS33} [get_ports uart_main_rx]
+set_property -dict { PACKAGE_PIN V2  IOSTANDARD LVCMOS33 } [get_ports { uart_main_tx }];
+set_property -dict { PACKAGE_PIN U2  IOSTANDARD LVCMOS33 } [get_ports { uart_main_rx }];
 
 ################################################################################
 # LEDs
 ################################################################################
 
-set_property -dict { PACKAGE_PIN M18  IOSTANDARD LVCMOS33 } [get_ports { led0 }];
-set_property -dict { PACKAGE_PIN N18  IOSTANDARD LVCMOS33 } [get_ports { led1 }];
+set_property -dict { PACKAGE_PIN M18 IOSTANDARD LVCMOS33 } [get_ports { led0 }];
+set_property -dict { PACKAGE_PIN N18 IOSTANDARD LVCMOS33 } [get_ports { led1 }];
 
 ################################################################################
 # Buttons
 ################################################################################
 
-set_property -dict { PACKAGE_PIN AA1  IOSTANDARD LVCMOS33 } [get_ports { btn0 }];
+set_property -dict { PACKAGE_PIN AA1 IOSTANDARD LVCMOS33 } [get_ports { btn0 }];
 set_property -dict { PACKAGE_PIN W1  IOSTANDARD LVCMOS33 } [get_ports { btn1 }];
 
 ################################################################################
@@ -37,12 +37,12 @@ set_property -dict { PACKAGE_PIN R21 IOSTANDARD LVCMOS33 } [get_ports { spi_flas
 # SD card
 ################################################################################
 
-set_property -dict { PACKAGE_PIN U7 IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_clk }]
-set_property -dict { PACKAGE_PIN AA8 IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_cmd }]
-set_property -dict { PACKAGE_PIN W9 IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_data[0] }]
-set_property -dict { PACKAGE_PIN Y9 IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_data[1] }]
-set_property -dict { PACKAGE_PIN Y7 IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_data[2] }]
-set_property -dict { PACKAGE_PIN Y8 IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_data[3] }]
+set_property -dict { PACKAGE_PIN U7  IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_clk }];
+set_property -dict { PACKAGE_PIN AA8 IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_cmd }];
+set_property -dict { PACKAGE_PIN W9  IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_data[0] }];
+set_property -dict { PACKAGE_PIN Y9  IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_data[1] }];
+set_property -dict { PACKAGE_PIN Y7  IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_data[2] }];
+set_property -dict { PACKAGE_PIN Y8  IOSTANDARD LVCMOS33 SLEW FAST } [get_ports { sdcard_data[3] }];
 
 # Put registers into IOBs to improve timing
 set_property IOB true [get_cells -hierarchical -filter {NAME =~*.litesdcard/sdcard_*}]
