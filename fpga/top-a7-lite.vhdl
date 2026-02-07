@@ -118,7 +118,7 @@ architecture behaviour of toplevel is
     signal wb_sddma_in         : wb_io_slave_out;
     signal wb_sddma_nr         : wb_io_master_out;
     signal wb_sddma_ir         : wb_io_slave_out;
-    signal sdcard_cd_internal  : std_ulogic := '0';
+    signal sdcard_cd_internal  : std_ulogic := '1';
     -- for conversion from non-pipelined wishbone to pipelined
     signal wb_sddma_stb_sent   : std_ulogic;
 
