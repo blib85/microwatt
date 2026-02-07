@@ -17,6 +17,13 @@ set_property -dict { PACKAGE_PIN M18  IOSTANDARD LVCMOS33 } [get_ports { led0 }]
 set_property -dict { PACKAGE_PIN N18  IOSTANDARD LVCMOS33 } [get_ports { led1 }];
 
 ################################################################################
+# Buttons
+################################################################################
+
+set_property -dict { PACKAGE_PIN AA1  IOSTANDARD LVCMOS33 } [get_ports { btn0 }];
+set_property -dict { PACKAGE_PIN W1  IOSTANDARD LVCMOS33 } [get_ports { btn1 }];
+
+################################################################################
 # SPI Flash
 ################################################################################
 
