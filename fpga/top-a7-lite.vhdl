@@ -512,7 +512,6 @@ begin
                 sdcard_data   => sdcard_data,
                 sdcard_cmd    => sdcard_cmd,
                 sdcard_clk    => sdcard_clk,
-                sdcard_cd     => '0',
                 irq           => ext_irq_sdcard
                 );
 
