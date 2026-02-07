@@ -90,7 +90,7 @@ filesets:
       - fpga/nexys-video.xdc : {file_type : xdc}
       - fpga/clk_gen_plle2.vhd : {file_type : vhdlSource-2008}
       - fpga/top-nexys-video.vhdl : {file_type : vhdlSource-2008}
-    
+
   a7_lite:
     files:
       - fpga/a7-lite.xdc : {file_type : xdc}
