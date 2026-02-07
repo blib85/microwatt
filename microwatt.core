@@ -455,6 +455,7 @@ targets:
     default_tool: vivado
     filesets: [core, a7_lite, soc, fpga, debug_xilinx, litedram, liteeth, uart16550, xilinx_specific, litesdcard]
     parameters:
+      - cpus
       - memory_size
       - ram_init_file
       - use_litedram=true
